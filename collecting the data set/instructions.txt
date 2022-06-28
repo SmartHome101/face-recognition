@@ -1,0 +1,21 @@
+1.you can control the dim of the photos by change the value of X 
+if you need the default sizes (140*140|252*252)remove x
+          
+     roi_color = frame[y:y+h+$x$, x:x+w+$x$]
+
+ex:
+
+default:
+     roi_color = frame[y:y+h, x:x+w]
+customised:
+    roi_color = frame[y:y+h+15, x:x+w+15]
+
+
+
+2.and from here you can change the number of photos you need the number between   $$
+
+       
+    if ret==True:
+         cv2.imshow('frame1',frame)
+    if cv2.waitKey(1)==13 or int(img_id)==$$$$$$$$2000$$$$$$:
+                break
