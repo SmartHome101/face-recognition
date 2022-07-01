@@ -1,2 +1,0 @@
-make folder and name it
-pre_test_cnn_input
