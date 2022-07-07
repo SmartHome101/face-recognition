@@ -25,6 +25,12 @@ def remove(path):
     elif os.path.isdir(path):
         shutil.rmtree(path) # remove file with its content
 
+# map predictive index to its corresponding name
+def getcode(n) : 
+    for x , y in CODES.items() : 
+        if n == y : 
+            return x
+
 # get the highest probability of each list to get names then take the names of the highest 8 probabilities
 def list_names(y_result , X_pred):
     #get the user name
@@ -33,18 +39,12 @@ def list_names(y_result , X_pred):
     
     for i in range(len(X_pred)):
         codes.append((getcode(np.argmax(y_result[i])), y_result[i][np.argmax(y_result[i])]))
-        # final_name.append(getcode(np.argmax(y_result[i])))
+        
     return sorted(codes, key=lambda tup: tup[1], reverse=True)[:8]
-
-# map predictive index to its corresponding name
-def getcode(n) : 
-    for x , y in CODES.items() : 
-        if n == y : 
-            return x
 
 @app.get('/')
 def index():
-    return ('Welcome to the Face Recognition')
+    return ('Welcome to the Face Recognition Model')
 
 @app.post('/predict')
 # pass the image to the prediction function to get their indexes
